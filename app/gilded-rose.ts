@@ -48,12 +48,10 @@ export class GildedRose {
 						if (item.quality < 50) {
 							// "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches
 							item.quality = item.quality + 1;
-							// Quality increases by 2 when there are 10 days
-							if (item.sellIn < 11) item.quality = item.quality + 1;
-							// Quality increases by 3 when there are 5 days or less
-							if (item.sellIn < 6) item.quality = item.quality + 1;
-							// The Quality of an item is never more than 50
-							if (item.quality > 50) item.quality = 50;
+							// Quality increases by 2 when there are 10 days && The Quality of an item is never more than 50
+							if (item.sellIn < 11 && item.quality < 50) item.quality = item.quality + 1;
+							// Quality increases by 3 when there are 5 days or less && The Quality of an item is never more than 50
+							if (item.sellIn < 6 && item.quality < 50) item.quality = item.quality + 1;
 						}
 
 						item.sellIn = item.sellIn - 1;
